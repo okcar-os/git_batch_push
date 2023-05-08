@@ -96,13 +96,13 @@ if git show-ref --quiet --verify refs/remotes/$REMOTE/$BRANCH; then
     # If so, only push the commits that are not on the remote already
     RANGE=$REMOTE/$BRANCH..HEAD
     REMOTE_COMMITS=$(git rev-list --count $REMOTE/$BRANCH..HEAD)
+    LOCAL_COMMITS=$(git rev-list --count HEAD ^$REMOTE/$BRANCH)
 else
     # Else push all the commits
     RANGE=HEAD
     REMOTE_COMMITS=0
+    LOCAL_COMMITS=$(git rev-list --count HEAD)
 fi
-
-LOCAL_COMMITS=$(git rev-list --count HEAD ^$REMOTE/$BRANCH)
 
 # Count the number of commits to push
 N=$(git log --first-parent --format=format:x $RANGE | wc -l)
