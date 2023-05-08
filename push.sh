@@ -67,6 +67,21 @@ pushCommits () {
     coloredEcho 2 "Pushing completed successfully."
 }
 
+TARGET_DIR=$1
+
+if [ -z "$TARGET_DIR" ]; then
+    coloredEcho 1 "Usage: $0 <target_directory>"
+    exit 1
+fi
+
+if [ ! -d "$TARGET_DIR" ]; then
+    coloredEcho 1 "Error: Directory $TARGET_DIR does not exist."
+    exit 1
+fi
+
+# Change the working directory to the specified directory
+cd "$TARGET_DIR"
+
 # Check if git is installed
 if ! command -v git &> /dev/null; then
     coloredEcho 1 "Git is not installed. Aborting."

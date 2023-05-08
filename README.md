@@ -18,7 +18,7 @@ This script can be used to push local Git branch commits to the remote repositor
 4. Run the following command to execute the script:
 
    ```
-   ./push.sh
+   push.sh <path-to-your-project>
    ```
 
    The script will automatically push your commits and display the counter values before each push.
@@ -60,7 +60,7 @@ This script can be used to push local Git branch commits to the remote repositor
 4. 执行以下命令来运行脚本：
 
    ```
-   ./push.sh
+   push.sh <path-to-your-project>
    ```
 
    脚本将自动推送您的提交，并在每次推送之前显示计数器值。
